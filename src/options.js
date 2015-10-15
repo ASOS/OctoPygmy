@@ -14,6 +14,7 @@ function save_options() {
 	options.warnLogging = document.getElementById('warn-logging').checked;
 	options.informationLogging = document.getElementById('information-logging').checked;
 	options.updateAllTemplate = document.getElementById('update-all-template').checked;
+	options.showNameOnDeploymentHistory = document.getElementById('show-name-on-deployment-history').checked;
 	
 	console.debug("Options to save:");
 	console.debug(options);
@@ -43,6 +44,7 @@ function restore_options() {
 		warnLogging: false,
 		informationLogging: true,
 		updateAllTemplate: true,
+		showNameOnDeploymentHistory: true
 	};
 
 	chrome.storage.sync.get(defaults, function(options) {
@@ -58,6 +60,7 @@ function restore_options() {
 		document.getElementById('warn-logging').checked = options.warnLogging;
 		document.getElementById('information-logging').checked = options.informationLogging;
 		document.getElementById('update-all-template').checked = options.updateAllTemplate;
+		document.getElementById('show-name-on-deployment-history').checked = options.showNameOnDeploymentHistory;
 		
 		pleaForAnalytics({ srcElement: document.getElementById('analytics') });
 	});
